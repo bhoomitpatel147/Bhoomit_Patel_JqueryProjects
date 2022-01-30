@@ -12,7 +12,7 @@ $(function () {   //Write your code inside a jQuery document ready function.
 		let percentage = $("#percent").val();
 		let answer = salary * percentage / 100;  //calculate the amount you can spend on tech
 
-		let amount = $("#amount");
+		let amount = $("span#amount");
 		amount.text(answer.toFixed(2));   //Use the built in toFixed() method to round the number
 		amount.prepend("$")
 
