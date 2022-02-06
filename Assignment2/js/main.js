@@ -1,44 +1,63 @@
 // WEB303 Assignment 2
-
+// Bhoomit Kiritbhai Patel
+// 0780326
 
 $(function () {
     let xhr = new XMLHttpRequest;
 
-    xhr.open('GET', 'prospect.html', true);
-    //xhr.open('GET', 'convert.html', true);
-    //xhr.open('GET', 'retain.html', true);
+    let content = document.getElementById('content');
 
-    xhr.onload = function () {
-        if (xhr.status === 200) {
-            //let prospect = document.getElementById('prospect');
-            //let convert = document.getElementById('convert');
-            //let retain = document.getElementById('retain');
 
-            $('#prospect').click(function () {
-                let content = document.getElementById('content');
-                alert("Done");
-                content.innerHTML = xhr.responseText;
-            });
-
+    $('#prospect').click(function () {
+        if (content.innerHTML) {
+            $('#content').hide().empty();
         }
-    };
-    xhr.send("search=arduino");
+        xhr.open('GET', 'prospect.html', true);
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                content.innerHTML = xhr.responseText;
+                $('#content').fadeIn(1000).slideDown("slow");
+            }
+        }
+        xhr.send("search=arduino");
+
+    });
+
+    $('#convert').click(function () {
+        if (content.innerHTML) {
+            $('#content').hide().empty();
+        }
+        xhr.open('GET', 'convert.html', true);
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                content.innerHTML = xhr.responseText;
+                $('#content').fadeIn(1000).slideDown("slow");
+            }
+        }
+        xhr.send("search=arduino");
+
+    });
+
+    $('#retain').click(function () {
+        if (content.innerHTML) {
+            $('#content').hide().empty();
+        }
+        xhr.open('GET', 'retain.html', true);
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                content.innerHTML = xhr.responseText;
+                $('#content').fadeIn(1000).slideDown("slow");
+            }
+        }
+        xhr.send("search=arduino");
+
+    });
+
+
+
 
 });
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-// $('#prospect').click(function () {
-    //     $('#content').load('prospect.html');
-    // });
