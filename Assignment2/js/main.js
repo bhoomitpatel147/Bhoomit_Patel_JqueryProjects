@@ -16,7 +16,7 @@ $(function () {
         xhr.onload = function () {
             if (xhr.status === 200) {
                 content.innerHTML = xhr.responseText;
-                $('#content').fadeIn(900).slideDown("slow");
+                $('#content').slideDown(2000);
             }
         }
         xhr.send("search=arduino");
@@ -31,7 +31,7 @@ $(function () {
         xhr.onload = function () {
             if (xhr.status === 200) {
                 content.innerHTML = xhr.responseText;
-                $('#content').fadeIn(900).slideDown("slow");
+                $('#content').slideDown(2000).css("font- size", '2em');
             }
         }
         xhr.send("search=arduino");
@@ -46,7 +46,7 @@ $(function () {
         xhr.onload = function () {
             if (xhr.status === 200) {
                 content.innerHTML = xhr.responseText;
-                $('#content').fadeIn(900).slideDown("slow");
+                $('#content').slideDown(2000);
             }
         }
         xhr.send("search=arduino");
