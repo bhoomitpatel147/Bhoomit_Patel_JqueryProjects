@@ -42,8 +42,10 @@ let ajaxMethod = $.ajax({
             },delay)
     },
     error: function (request, status, error) {
+       setTimeout(function(){
         $('div#team').empty();
         $('div#team').append('Error: ' + error);
+    },delay);
     }
   });
 
