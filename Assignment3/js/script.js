@@ -1,21 +1,21 @@
 
   $(function () {
-    getJsonObject();
+    getJsonObject;
   });
 
 
-let getJsonObject = $.getJSON("team.json", function(data){
+// let getJsonObject = $.getJSON("team.json", function(data){
 
-    $.each(data.members, function(key, val){
+//     $.each(data.members, function(key, val){
 
-        $('div#team').append(`<div id="members">
-                              <h2 class="name">${val.name}</h2>
-                              <h5 class="position">${val.position}</h5>
-                              <p class="bio">${val.bio}</p>
-                              </div>`);
-    });
+//         $('div#team').append(`<div id="members">
+//                               <h2 class="name">${val.name}</h2>
+//                               <h5 class="position">${val.position}</h5>
+//                               <p class="bio">${val.bio}</p>
+//                               </div>`);
+//     });
 
-});
+// });
 
 let delay = 3000;
 
