@@ -1,6 +1,6 @@
 
   $(function () {
-    getJsonObject;
+    ajaxMethod;
   });
 
 
