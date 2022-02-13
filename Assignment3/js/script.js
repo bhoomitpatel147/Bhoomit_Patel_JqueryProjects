@@ -44,7 +44,7 @@ let ajaxMethod = $.ajax({
     error: function (request, status, error) {
        setTimeout(function(){
         $('div#team').empty();
-        $('div#team').append('Error: ' + error);
+        $("div#team").append("Error: ", error ," .The content could not be retrieved.");
     },delay);
     }
   });
