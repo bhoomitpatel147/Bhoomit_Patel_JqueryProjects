@@ -41,7 +41,7 @@ $(function () {
         
         }
         else{            
-            $('#locationhere').append(`Welcome to our page for first time!!`);
+            $('#locationhere').append(`<h2>Welcome to our page for first time!!</h2>`);
             localStorage.setItem('storedLat', currentLat);
             localStorage.setItem('storedLon', currentLon);
             
