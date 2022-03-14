@@ -1,0 +1,145 @@
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    text-align: center;
+    margin-top: 15px;
+    padding: 5px;
+    background-color: aqua;
+}
+
+/* Accordion CSS */
+
+h2.title{
+    margin-left: 20px;
+    font-variant: small-caps;
+    font-size: 2em;
+    color: rgb(161, 56, 7);
+    
+}
+
+.source{
+    background-color: rgb(207, 205, 205);
+    padding: 20px;
+
+}
+
+ul.accordion{
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+button.accordion-control{
+    background-color:mediumorchid;
+    padding: 16px;
+    color:black;
+    font-size: 1.1em;
+    display: block;
+    margin-bottom: 10px;
+    width: 100%
+}
+.accordion-panel {
+    display: none;
+    padding: 50px;
+    
+    border: 1px double black;
+    font-size: 24px;
+}
+
+.personal{
+    display: table;
+    background-color: bisque;
+    height: 405px;
+}
+
+.personal h2{
+    text-align: center;
+}
+
+.image{
+    display: block;
+    width: 35%;
+    float: right;
+    font-size: 0.8em;
+    height: 405px;
+    background-color: violet;
+}
+
+.history{
+    background-color: blueviolet;
+}
+
+.history h2{
+    text-align: center;
+}
+
+
+
+
+
+
+/* Tabbed CSS */
+
+ul.tab-list {
+    list-style: none;
+  }
+  ul.tab-list li {
+    display: inline-block;
+    margin-left: 16px;
+    padding: 20px;
+    font-size: 1.2em;
+    border: 2px double black;
+    border-radius: 20px;
+  }
+  ul.tab-list li.active {
+    background-color: palevioletred;
+  }
+  ul.tab-list li.active a {
+    color: white;
+  }
+
+  ul.tab-list li a{
+      text-decoration: none;
+      font-size: 1.1em;
+      font-weight: bolder;
+  }
+
+  ul.tab-list li a:hover{
+    color: black;
+    
+  }
+  .tab-panel {
+    margin: 0 auto;
+    display: none;
+    width: 700px;
+    height: 400px;
+    padding: 50px;
+    border: 2px double darkgreen;
+    border-radius: 10px;
+  }
+  .tab-panel.active {
+    display: block;
+  }
+
+  div.tab{
+      text-align: center;
+      display: block;
+      margin: 0 auto;
+      background-color: rgb(238, 234, 234);
+      padding: 10px;
+  }
+
+  .tab-panel p{
+    text-align: justify;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  footer{
+    text-align: center;
+    display: block;
+    font-size: 2em;
+    padding: 10px 0px;
+    background-color: aquamarine;
+}
