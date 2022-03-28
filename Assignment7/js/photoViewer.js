@@ -4,7 +4,7 @@ $(function () {
     var $current; // Current image
     var cache = {}; // Cache object
     var $frame = $('#photo-viewer'); // Container
-    var $loading = $('.photo-box')
+    var $loading = $('.photo-box');
     var $thumbs = $('.thumbnail-anchor'); // Container
 
     function crossfade($img) { // New image as parameter
@@ -19,7 +19,7 @@ $(function () {
         $current = $img; // New image is current one
     }
 
-    $(document).on('click', '.thumbnail-anchor', function (e) { // Click on thumb
+    $(document).on('click', '.thumbnail-anchor', function customPhotoViewer(e) { // Click on thumb
         var $img; // Local var called $img
         var src = this.href; // Store path to image
         var request = src; // Store latest image
