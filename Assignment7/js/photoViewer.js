@@ -43,7 +43,7 @@ $(function () {
                 $(this).hide(); // Hide it
                 // Remove is-loading class & append image
                 $loading.removeClass('is-loading').append($img);
-               //$loading.attr("href",src);
+               $loading.attr("href",src);
                 cache[src].isLoading = false; // Update isLoading in cache
                 // If still most recently requested image then
                 if (request === src) {
