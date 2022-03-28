@@ -1,5 +1,6 @@
 $(function () {
     $('#photo-viewer').show().on('click', '.photo-box', function (e) {
+        e.preventDefault();
         var $content = $(this).clone().find('img').css({
             marginLeft: 0,
             marginTop: 0,
