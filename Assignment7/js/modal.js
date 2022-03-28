@@ -3,7 +3,7 @@ class Modal {
     // $modal;
     constructor() {
         this.$window = $(window);
-        this.$modal = $(`<div class="modal"/><h1>Bhoomit Patel Photo Gallary`);
+        this.$modal = $(`<div class="modal"/>`);
         this.$content = $('<div class="modal-content"/>');
         this.$close = $('<button role="button" class="modal-close">&times;</button>');
         this.$modal.append(this.$content, this.$close);
@@ -26,7 +26,7 @@ class Modal {
         var top = Math.max(this.$window.height() - this.$modal.outerHeight(), 0) / 2;
         var left = Math.max(this.$window.width() - this.$modal.outerWidth(), 0) / 2;
         // Set CSS for the modal
-        $(window).css('background-color','red');
+     
         this.$modal.css({
             top: top + this.$window.scrollTop(),
             left: left + this.$window.scrollLeft()
