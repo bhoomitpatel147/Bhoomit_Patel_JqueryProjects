@@ -1,0 +1,61 @@
+{
+    "characters":[
+        
+        {
+            "firstName":"Mr.",
+            "lastName":"Robot",
+            "realName":"Christian Slater",
+            "birthPlace":"New York, US",
+            "partner":"Ryan Haddon",
+            "DOB":"1969-08-18"
+        },
+        {
+            "firstName":"Elliot",
+            "lastName":"Alderson",
+            "realName":"Rami Malek",
+            "birthPlace":"California, US",
+            "partner":"Lucy Boynton",
+            "DOB": "1981-05-12"
+        },
+        {
+            "firstName":"Tyrell",
+            "lastName":"Wellick",
+            "realName":"Martin Wallstrom",
+            "birthPlace":"Uddevalla, Sweden",
+            "partner":"Lisa Linnertorp",
+            "DOB":"1983-07-07"
+        },
+        {
+            "firstName":"Phillip",
+            "lastName":"Price",
+            "realName":"Michael Cristofer",
+            "birthPlace":"New Jersey, US",
+            "partner":"None",
+            "DOB":"1945-01-22"
+        },        
+        {
+            "firstName":"Dominique",
+            "lastName":"Dipierro",
+            "realName":"Grace Gummer",
+            "birthPlace":"New York, US",
+            "partner":"Tay Strathairn",
+            "DOB":"1986-05-09"
+        },
+        {
+            "firstName":"Fernando",
+            "lastName":"Vera",
+            "realName":"Elliot Villar",
+            "birthPlace":"New York, US",
+            "partner":"Emily Dorsch",
+            "DOB":"1980-06-06"
+        },
+        {
+            "firstName":"Joanna",
+            "lastName":"Wellick",
+            "realName":"Stephanie Corneliussen",
+            "birthPlace":"Copenhagen, Denmark",
+            "partner":"Orgi-E",
+            "DOB":"1987-04-28"
+        }
+    ]
+}
