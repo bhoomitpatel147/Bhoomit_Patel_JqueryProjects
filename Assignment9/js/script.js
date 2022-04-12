@@ -13,7 +13,28 @@ function init() {
 
     //     }).siblings().css("background-color", "green");
     // });
-
+    $('body').append(`    <section id="content">
+    <h2>Mr.Robot Series Team</h2>
+    <button style="background-color: antiquewhite; padding: 20px; cursor: pointer;font-size: 1.5em;font-weight: bolder;">Click me first for sorting</button></br></br>
+    <div id="team">
+    <table id="characters" class="sorting">
+    <thead>
+    <tr>
+    <th data-sortbythis="name"><a href="#" id="fName"> First Name</a></th>
+    <th data-sortbythis="name"><a href="#" id="lName">Last Name</a></th>
+    <th data-sortbythis="name"><a href="#" id="rName">Real Name</a></th>
+    <th data-sortbythis="name"><a href="#" id="birthPlace">Birth Place</a></th>
+    <th data-sortbythis="name"><a href="#" id="partner">Life Partner</a></th>
+    <th data-sortbythis="compareDates"><a href="#" id="dob">Date Of Birth</a></th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+    </table>
+    <h2 style="background-color: black; color: white;" id="check"></h2>
+    </div>
+</section>`);
+    
        getJsonObject();
     var compare = {
         name: function (a, b) {
@@ -52,23 +73,76 @@ function init() {
     $('button').hide();
     $('table').each(function () {
         var $table = $(this); // This table
-        console.log($table);
+        // console.log($table);
         var $tbody = $table.find('tbody'); // Table body
         var $controls = $table.find('th'); // Table headers
         var rows = $tbody.find('tr').toArray(); // Array of rows
-        $controls.on('click', function () { // Event handler
+        //console.log(rows);
+        $controls.on('click', function (event) { // Event handler
+           
             var $header = $(this); // Get header
             var order = $header.data('sortbythis'); // either name or compareNumbersAscending
             var column; // Used later
-            if ($header.is('.ascending') || $header.is('.descending')) { // Toggle to other class
-                $header.toggleClass('ascending descending');
+            
+            
+             if ($header.is('.ascending') || $header.is('.descending') || $header.is('.normal')) { // Toggle to other class
+                if($header.is('.ascending'))
+                {
+                    $header.removeClass('ascending');
+                    $header.toggleClass('descending');
+                    $tbody.append(rows.reverse());
+                    $('h2#check').text(`The table is order by DESCENDING using ${$(this).text()} heading `);
+                }
+               else if($header.is('.descending')){
+                    $header.removeClass('descending');
+                    $header.toggleClass('normal');
+                    $tbody.append(rows.reverse());
+                    var $data = $('tbody');
+                    $tbody.empty();
+                    getJsonObject();
+                    $('h2#check').text(`The table is order by ORIGINAL using ${$(this).text()} heading `);
+                }
+               else if($header.is('.normal')){
+                var $class = $(this).attr('class');
+                $('h2#check').text(`The table is order by ASCENDING using ${$(this).text()} heading `);
+                   $tbody.empty();
+                   var $header = $(this); // Get header
+                   var order = $header.data('sortbythis'); // either name or compareNumbersAscending
+                   var column;  
+                   $header.removeClass('normal');
+                    $header.toggleClass('ascending');
+                   // $header.siblings().removeClass('ascending descending').removeClass('normal'); // If compare object has method of that name
+                    $header.siblings().removeAttr('class');
+                    console.log("check if has property");
+                    if (compare.hasOwnProperty(order)) {
+                        console.log("has property");
+                        column = $controls.index(this); // Column's index no
+                        rows.sort(function (a, b) { // Call sort() on rows
+                            a = $(a).find('td').eq(column).text();// Text of column row a
+                            b = $(b).find('td').eq(column).text();// Text of column row b
+                            return compare[order](a, b); // Call compare method
+                        });
+                        $tbody.append(rows);
+                    }
+
+                }  
                 // Reverse the array
-                $tbody.append(rows.reverse());
-            } else { //not sorted yet, we need to sort
+                // $tbody.append(rows.reverse());
+            } else{
+                if($header.siblings().is('.normal')){
+                    console.log($header.siblings());
+                    $header.siblings().removeClass('normal');
+                    $tbody.empty();
+                    // getJsonObject();
+                }//not sorted yet, we need to sort
+                $tbody.empty();
+                $('h2#check').text(`The table is order by ASCENDING using ${$(this).text()} heading `);
+               // $('h2#check').text("Ascending");
                 $header.addClass('ascending'); // Add class to header
+                var $class = $(this).attr('class');
                 // Remove asc or desc from all other headers
-                $header.siblings().removeClass('ascending descending'); // If compare object has method of that name
-                // $header.siblings().removeAttr('class');
+                $header.siblings().removeClass('ascending descending normal'); // If compare object has method of that name
+                 $header.siblings().removeAttr('class');
                 console.log("check if has property");
                 if (compare.hasOwnProperty(order)) {
                     console.log("has property");
@@ -81,9 +155,12 @@ function init() {
                     $tbody.append(rows);
                 }
             }
-        });
+           
+
+        });    
     });
-   
+
+
     });
 
 
@@ -91,27 +168,9 @@ function init() {
 
 
 function getJsonObject() {
+  
+
     $.getJSON("character.json", function (data) {
-       $('body').append(`    <section id="content">
-       <h2 id="check">Mr.Robot Series Team</h2>
-       <button style="background-color: antiquewhite; padding: 20px; cursor: pointer;font-size: 1.5em;font-weight: bolder;">Click me first for sorting</button></br></br>
-       <div id="team">
-       <table id="characters" class="sorting">
-       <thead>
-       <tr>
-       <th data-sortbythis="name"><a href="#" id="fName"> First Name</a></th>
-       <th data-sortbythis="name"><a href="#" id="lName">Last Name</a></th>
-       <th data-sortbythis="name"><a href="#" id="rName">Real Name</a></th>
-       <th data-sortbythis="name"><a href="#" id="birthPlace">Birth Place</a></th>
-       <th data-sortbythis="name"><a href="#" id="partner">Life Partner</a></th>
-       <th data-sortbythis="compareDates"><a href="#" id="dob">Date Of Birth</a></th>
-       </tr>
-       </thead>
-       <tbody>
-       </tbody>
-       </table>
-       </div>
-   </section>`);
         $.each(data.characters, function (key, val) {
             $('tbody').append(`  <tr id="data">
                                 <td class="firstNname">${val.firstName}</td>
